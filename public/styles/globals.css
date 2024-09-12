@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* codigo para ANIMACION DE HEADER */
+.nav-link {
+    color: #ADB7BE;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  
+  .nav-link:hover,
+  .nav-link-active {
+    color: white;
+    border-bottom: 2px solid white;
+  }
