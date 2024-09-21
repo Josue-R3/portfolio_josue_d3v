@@ -2,6 +2,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { FaGithub, FaNodeJs, FaReact } from "react-icons/fa";
 import APP_MOVIL from '../../../public/images/APP_MOVIL.png';
+import APP_MOVILV2 from '../../../public/images/app_movilv2.png';
+import APP_MOVILV3 from '../../../public/images/app_movilv3.png';
 import PSI from '../../../public/images/PSI.png';
 import ACCESS from '../../../public/images/ACCESS.png';
 import { RiFlutterFill, RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
@@ -20,8 +22,8 @@ const CARD_DATA = [
     tecnologies: [<FaReact key="react" />, <RiNextjsFill key="nextjs" />, <RiTailwindCssFill key="tailwind" />, <SiMicrosoftazure key="azure" />, <SiMicrosoftsharepoint key="sharepoint" />]
   },
   {
-    title: 'YoSoyISTE',
-    image: APP_MOVIL,
+    title: 'App Móvil',
+    image: APP_MOVILV3,
     github: '#',
     category: 'mobile',
     description: 'Aplicación móvil con consumo de APIs, autenticación y roles, gestión de estados con RiverPod, conexión con servicios en la nube.',

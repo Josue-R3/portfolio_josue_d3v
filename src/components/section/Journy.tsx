@@ -8,8 +8,15 @@ const data = [
   { title: "Ingeniería en Ciberseguridad", place: 'Universidad de Saint Leo', status: "En curso", category: 'education' },
   { title: "Tecnólogo en Desarrollo Web", place: 'Instituto Superior Tecnológico España', status: "2021 - 2023", category: 'education' },
   { title: "Bachiller en Ciencias", place: 'Unidad Educativa Ambato', status: "2013 - 2020", category: 'education' },
-  { title: "Certificación en SQL", place: "Edutin", status: "2023", category: 'certification' },
-  { title: "Certificación en Git", place: "Edutin", status: "2022", category: 'certification' }
+  { title: "LCSPC", place: "CertiProf", status: "2024", category: 'certification', link: 'https://drive.google.com/file/d/1rB-RjxgaB5OWUaI48gYsnZmgE8e-8wPv/view?usp=sharing' },
+  { title: "POWER BI: ANÁLISIS DE DAX", place: "Tutorias EC", status: "2024", category: 'certification', link: 'https://drive.google.com/file/d/1eRz5V7hsGR2AjnU3WFXPlEIvRHcvGdJL/view?usp=sharing' },
+  { title: "BUSINESS INTELIGENCE", place: "Tutorias EC", status: "2024", category: 'certification', link: 'https://drive.google.com/file/d/1HwarTqLv-CLEMSR8rKEioADDZnLaF1hM/view?usp=sharing' },
+  { title: "DevNet Associate", place: "CISCO Networking Academy", status: "2024", category: 'certification', link: 'https://drive.google.com/file/d/1_ko_CdA8G3p0jE5FKZeQxmYUOtMxsBhB/view?usp=sharing' },
+  { title: "Experto Técnico Internacional", place: "SUDEN", status: "2023", category: 'certification', link: 'https://drive.google.com/file/d/1RUC6qYAFKjJ_72lGMY5wcYjNyrwMUrNk/view?usp=sharing' },
+  { title: "Administración Técnica", place: "UDET", status: "2023", category: 'certification', link: 'https://drive.google.com/file/d/1IfdNNlDDBdb7mZPNXLcBB2O5LPgTrKrD/view?usp=sharing' },
+  { title: "Experto en configuración y gestión de redes", place: "UDET", status: "2023", category: 'certification', link: 'https://drive.google.com/file/d/1a6CjsuGmh0fYl0gTnK492b9Oq-aixgEF/view?usp=sharing' },
+  { title: "Administrador de base de datos MySQL", place: "Edutin", status: "2023", category: 'certification', link: 'https://drive.google.com/file/d/1cDXugAadK-heOATT3_y6FWJIGPnIGCEb/view?usp=sharing' },
+  //{ title: "Certificación en Git", place: "Edutin", status: "2022", category: 'certification' },
 ];
 
 // Renderiza un ítem de la línea de tiempo
@@ -25,7 +32,7 @@ const TimelineItem = ({ item, isLast }: { item: any, isLast: boolean }) => (
 
 // Renderiza el ícono dependiendo de la categoría
 const Icon = ({ category }: { category: string }) => (
-  <div className="relative flex items-center justify-center flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-blue-500 ring-8 ring-gray-900">
+  <div className="relative flex items-center justify-center flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-gray-600 ring-8 ring-gray-900">
     {category === 'experience' && <FaBriefcase className="w-4 h-4 text-white" />}
     {category === 'education' && <FaGraduationCap className="w-4 h-4 text-white" />}
     {category === 'certification' && <PiCertificateBold className="w-4 h-4 text-white" />}
@@ -33,16 +40,28 @@ const Icon = ({ category }: { category: string }) => (
 );
 
 // Renderiza el contenido de cada ítem de la línea de tiempo
-const TimelineContent = ({ item }: { item: any }) => (
-  <div className="min-w-0 flex-1 ml-4 pt-1.5 rounded-lg bg-gray-800 p-4 hover:bg-gray-900">
-    <div className="flex items-center text-sm text-gray-400 mb-1">
-      <FaCalendarAlt className="mr-2 h-4 w-4 flex-shrink-0" />
-      <span>{item.status}</span>
-    </div>
-    <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-    <p className="text-gray-400">{item.place}</p>
-  </div>
-);
+const TimelineContent = ({ item }: { item: any }) => {
+  const Wrapper = item.link ? 'a' : 'div';
+
+  return (
+    <Wrapper
+      href={item.link ? item.link : undefined}
+      target={item.link ? "_blank" : undefined}
+      rel={item.link ? "noopener noreferrer" : undefined}
+      className={`min-w-0 flex-1 ml-4 pt-1.5 rounded-lg bg-gray-800 p-4 
+      hover:bg-gray-900 ${item.link ? 'cursor-pointer' : ''}`}
+    >
+      <div className="flex items-center text-sm text-gray-400 mb-1">
+        <FaCalendarAlt className="mr-2 h-4 w-4 flex-shrink-0" />
+        <span>{item.status}</span>
+      </div>
+      <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+      <p className="text-gray-400">{item.place}</p>
+    </Wrapper>
+  );
+};
+
+
 
 // Renderiza la línea de tiempo de una categoría específica
 const Timeline = ({ title, items }: { title: string, items: any[] }) => (

@@ -101,7 +101,7 @@ export default function Header() {
             className="cursor-pointer"
           >
             {link.title === "Contacto" ? (
-              <span className="px-4 py-2 font-semibold bg-white text-black hover:bg-transparent hover:text-white rounded-md">
+              <span className="px-4 py-2 font-semibold bg-white text-black hover:bg-transparent hover:text-white rounded-md hover:border-b-1">
                 {link.title}
               </span>
             ) : (
